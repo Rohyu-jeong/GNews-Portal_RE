@@ -1,0 +1,23 @@
+# UiPath 자동 생성 폴더
+.local/
+.storage/
+.screenshots/
+
+# 프로젝트 설정/캐시 파일 무시
+*.nupkg
+*.dll
+*.cache
+*.db
+*.tmp
+*.nuget.*
+
+# IDE 설정 파일
+.vscode/
+.idea/
+*.user
+*.log
+
+# Windows 불필요한 파일
+Thumbs.db
+ehthumbs.db
+Desktop.ini

@@ -32,5 +32,15 @@
   "UiPath.UIAutomationNext.Activities.Logging.SearchPerformanceLog": "False",
   "UiPath.UIAutomationNext.Activities.Logging.AuditLogLevel": "Trace",
   "UiPath.UIAutomationNext.Activities.SAPLogon.SAPLogonRetries": "5",
-  "UiPath.UIAutomationNext.Activities.SAPLogon.SAPLogonDelayBetweenRetries": "0.5"
+  "UiPath.UIAutomationNext.Activities.SAPLogon.SAPLogonDelayBetweenRetries": "0.5",
+  "UiPath.UIAutomationNext.Activities.SearchStepsWnd.WpfSupport": "False",
+  "UiPath.UIAutomationNext.Activities.ApplicationCard.DialogHandlingDismissAlerts": "False",
+  "UiPath.UIAutomationNext.Activities.ApplicationCard.DialogHandlingDismissConfirms": "False",
+  "UiPath.UIAutomationNext.Activities.ApplicationCard.DialogHandlingDismissPrompts": "False",
+  "UiPath.UIAutomationNext.Activities.ApplicationCard.DialogHandlingConfirmDialogResponse": "Cancel",
+  "UiPath.UIAutomationNext.Activities.ApplicationCard.DialogHandlingPromptDialogResponse": "Cancel",
+  "UiPath.UIAutomationNext.Activities.ApplicationCard.DialogHandlingPromptDialogResponseText": "",
+  "UiPath.UIAutomationNext.Activities.KeyboardEvents.TypeIntoClipboardMode": "Never",
+  "UiPath.UIAutomationNext.Activities.Logging.TargetSearchLogLevel": "Off",
+  "UiPath.UIAutomationNext.Activities.Logging.TargetSearchPerformanceLogLevel": "Off"
 }

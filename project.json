@@ -4,11 +4,11 @@
   "description": "TransactionItem을 DataRow로 사용하는 템플릿",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.23.4]",
+    "UiPath.Excel.Activities": "[2.24.4]",
     "UiPath.Mail.Activities": "[1.23.1]",
-    "UiPath.System.Activities": "[24.3.1]",
+    "UiPath.System.Activities": "[25.4.2]",
     "UiPath.Testing.Activities": "[24.10.0]",
-    "UiPath.UIAutomation.Activities": "[24.10.12]"
+    "UiPath.UIAutomation.Activities": "[25.10.7]"
   },
   "webServices": [],
   "entitiesStores": [],

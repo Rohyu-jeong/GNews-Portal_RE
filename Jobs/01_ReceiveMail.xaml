@@ -99,14 +99,14 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_01_ReceiveMail" sap:VirtualizedContainerService.HintSize="987.1428571428571,3791.9999999999995" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_01_ReceiveMail" sap:VirtualizedContainerService.HintSize="988.2857142857142,3809.1428571428573" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="614.8571428571429,175.42857142857142" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;***Receive Mail Start***&quot;]" />
-    <Sequence sap2010:Annotation.AnnotationText="IMAP 메일 수신 후 본문을 분석하여 항목을 추출" DisplayName="메일 수신 및 항목 추출 | Sequence" sap:VirtualizedContainerService.HintSize="614.8571428571429,3427.4285714285716" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="614.8571428571429,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;***Receive Mail Start***&quot;]" />
+    <Sequence sap2010:Annotation.AnnotationText="IMAP 메일 수신 후 본문을 분석하여 시작날짜와 종료날짜를 추출" DisplayName="메일 수신 및 항목 추출 | Sequence" sap:VirtualizedContainerService.HintSize="614.8571428571429,3440" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="lstMailMsg" />
       </Sequence.Variables>
@@ -116,35 +116,35 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <TryCatch DisplayName="메일 수신 | Try Catch" sap:VirtualizedContainerService.HintSize="580.5714285714286,960.5714285714286" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <TryCatch DisplayName="메일 수신 | Try Catch" sap:VirtualizedContainerService.HintSize="580.5714285714286,969.7142857142857" sap2010:WorkflowViewState.IdRef="TryCatch_2">
         <TryCatch.Try>
-          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="452.57142857142856,534.8571428571429" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="452.57142857142856,541.7142857142857" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" FilterExpression="{x:Null}" Password="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="메일함에서 메일 메시지들을 가져옴" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[in_strID]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="418.2857142857143,101.14285714285714" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="RPA" MarkAsRead="False" Messages="[lstMailMsg]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Port="993" SecureConnection="SslOnConnect" SecurePassword="[in_sstrPW]" Server="imap.gmail.com" TimeoutMS="180000" Top="5">
+            <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" FilterExpression="{x:Null}" Password="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="메일함에서 메일 메시지들을 가져옴" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[in_strID]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="418.2857142857143,103.42857142857143" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="RPA" MarkAsRead="False" Messages="[lstMailMsg]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Port="993" SecureConnection="SslOnConnect" SecurePassword="[in_sstrPW]" Server="imap.gmail.com" TimeoutMS="180000" Top="5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:GetIMAPMailMessages>
-            <If sap2010:Annotation.AnnotationText="유효한 메일이 없을 경우 (Nothing 또는 Count = 0) BusinessRuleException 발생" Condition="[lstMailMsg Is Nothing OrElse lstMailMsg.Count = 0]" DisplayName="메일 여부 | If" sap:VirtualizedContainerService.HintSize="418.2857142857143,373.7142857142857" sap2010:WorkflowViewState.IdRef="If_4">
+            <If sap2010:Annotation.AnnotationText="유효한 메일이 없을 경우 (Nothing 또는 Count = 0) BusinessRuleException 발생" Condition="[lstMailMsg Is Nothing OrElse lstMailMsg.Count = 0]" DisplayName="메일 여부 | If" sap:VirtualizedContainerService.HintSize="418.2857142857143,378.2857142857143" sap2010:WorkflowViewState.IdRef="If_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,174.28571428571428" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,175.42857142857142" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Throw Exception="[New BusinessRuleException(&quot;조건에 맞는 메일이 존재하지 않습니다.&quot;)]" sap:VirtualizedContainerService.HintSize="381.7142857142857,114.28571428571429" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  <Throw Exception="[New BusinessRuleException(&quot;조건에 맞는 메일이 존재하지 않습니다.&quot;)]" sap:VirtualizedContainerService.HintSize="381.7142857142857,115.42857142857143" sap2010:WorkflowViewState.IdRef="Throw_1" />
                 </Sequence>
               </If.Then>
               <If.Else>
@@ -166,13 +166,13 @@
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452.57142857142856,226.28571428571428" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452.57142857142856,228.57142857142858" sap2010:WorkflowViewState.IdRef="Sequence_12">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="418.2857142857143,166.28571428571428" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Get Mail 실패 : &quot; + exception.Message]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="418.2857142857143,168.57142857142858" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Get Mail 실패 : &quot; + exception.Message]" />
               </Sequence>
             </ActivityAction>
           </Catch>
@@ -188,8 +188,8 @@
           </Sequence>
         </TryCatch.Finally>
       </TryCatch>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="580.5714285714286,175.42857142857142" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;메일 수신 성공&quot;]" />
-      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mailMessage" sap:VirtualizedContainerService.HintSize="580.5714285714286,2168.5714285714284" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lstMailMsg]">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="580.5714285714286,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;메일 수신 성공&quot;]" />
+      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mailMessage" sap:VirtualizedContainerService.HintSize="580.5714285714286,2169.714285714286" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lstMailMsg]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="snm:MailMessage">
             <ActivityAction.Argument>
@@ -369,6 +369,6 @@
         </ui:ForEach.Body>
       </ui:ForEach>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="614.8571428571429,166.28571428571428" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;***Receive Mail End***&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="614.8571428571429,168.57142857142858" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;***Receive Mail End***&quot;]" />
   </Sequence>
 </Activity>

@@ -1,0 +1,253 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_03_GenerateTransactionDT" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_dt_TransactionData" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>_03_GenerateTransactionDT_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="_03_GenerateTransactionDT" sap:VirtualizedContainerService.HintSize="994.2857142857142,787.7542857142856" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484.57142857142856,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;***Generate Transaction DataTable Start***&quot;]" />
+    <Sequence sap2010:Annotation.AnnotationText="전체 게시물 수를 조회하고, 순번 기반의 Transaction DataTable을 생성" DisplayName="Transaction DataTable 생성 | Sequence" sap:VirtualizedContainerService.HintSize="484.57142857142856,320.57142857142856" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="s:Int32[]" Name="arrRowNumbers" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence sap2010:Annotation.AnnotationText="Config에서 설정된 시작날짜와 종료날짜를 입력해 조회 후 전체 게시물 수를 추출" DisplayName="전체 건수 추출 | Sequence" sap:VirtualizedContainerService.HintSize="450.2857142857143,103.42857142857143" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: 보도자료 : 경기도뉴스포털" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="484.57142857142856,1506.857142857143" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" IsDisplayNameAuto="True" ScopeGuid="39803af5-415e-4929-92be-41c87d7ac543" Version="V2">
+          <uix:NApplicationCard.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450.2857142857143,1264" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="시작날짜 | Type Into" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,254.85714285714286" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="39803af5-415e-4929-92be-41c87d7ac543" Text="[io_Config(&quot;StartDate&quot;).ToString]" Version="V4">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo.do" DesignTimeRectangle="386, 506, 181, 42" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='datepicker1' tag='INPUT' aaname='시작일자(예시:YYYY-MM-DD)' /&gt;" Guid="794717a2-bd06-4bd2-92d6-ca5c907c4a06" InformativeScreenshot="193db1821c81f89a5c826931d18c5f87.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                  </uix:NTypeInto.Target>
+                </uix:NTypeInto>
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="종료날짜 | Type Into" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,254.85714285714286" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="39803af5-415e-4929-92be-41c87d7ac543" Text="[io_Config(&quot;EndDate&quot;).ToString]" Version="V4">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo.do" DesignTimeRectangle="636, 506, 181, 42" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='datepicker2' tag='INPUT' aaname='종료일자(예시:YYYY-MM-DD)' /&gt;" Guid="a7a41a9e-8d34-4044-aa6c-a744fedb0e39" InformativeScreenshot="2b37d5e17448ec60f2d9731bdad302c3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                  </uix:NTypeInto.Target>
+                </uix:NTypeInto>
+                <uix:NSelectItem DisplayName="제목 | Select Item" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,191.42857142857142" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="제목" ScopeIdentifier="39803af5-415e-4929-92be-41c87d7ac543" Version="V4">
+                  <uix:NSelectItem.Items>
+                    <scg:List x:TypeArguments="x:String" Capacity="4">
+                      <x:String>전체</x:String>
+                      <x:String>제목</x:String>
+                      <x:String>내용</x:String>
+                      <x:String>부서</x:String>
+                    </scg:List>
+                  </uix:NSelectItem.Items>
+                  <uix:NSelectItem.Target>
+                    <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo.do" DesignTimeRectangle="907, 504, 123, 46" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='search' tag='SELECT' aaname='검색조건선택' /&gt;" Guid="8850bbc6-0e1f-4f22-af8b-af55532c57af" InformativeScreenshot="633a76e61b3fd46b5d44be54d2e6bf74.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                  </uix:NSelectItem.Target>
+                </uix:NSelectItem>
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="검색 | Click" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,191.42857142857142" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="39803af5-415e-4929-92be-41c87d7ac543" Version="V4">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo.do" DesignTimeRectangle="1453, 504, 93, 46" ElementType="Button" FullSelectorArgument="&lt;webctrl class='btn_search' tag='BUTTON' type='button' aaname='검색' /&gt;" Guid="2e8e99cd-9d4b-4a0e-9737-0c401ed0f701" InformativeScreenshot="8f145bd87dd8d4ff3055d16402b595fc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NGetText DisplayName="검색 결과 전체 건수 | Get Text" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,191.42857142857142" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="39803af5-415e-4929-92be-41c87d7ac543" TextString="[io_Config(&quot;TotalCount&quot;)]" Version="V4">
+                  <uix:NGetText.Target>
+                    <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo.do" DesignTimeRectangle="288, 629, 21, 21" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='contents' tag='SPAN' parentclass='total_num' /&gt;" Guid="7472dec6-6278-41bd-b129-58b6c05ec416" ImageBase64="" InformativeScreenshot="d31a8189767860bd8e77ccae4f1222e6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                  </uix:NGetText.Target>
+                </uix:NGetText>
+                <WriteLine DisplayName="검색 결과 전체 건수 | Write Line" sap:VirtualizedContainerService.HintSize="416,117.71428571428571" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;검색 결과 전체 건수 : &quot; + io_Config(&quot;TotalCount&quot;).ToString]" />
+              </Sequence>
+            </ActivityAction>
+          </uix:NApplicationCard.Body>
+          <uix:NApplicationCard.TargetApp>
+            <uix:TargetApp Area="2872, -8, 1936, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAGdYAABnWARjRyu0AAAEaSURBVDhP7Y6xSsNQGIWP+UM3N59CBIfQmNskTe5tRVxcOvgALqIv4QM4qb335jZRpM0ibu526OIsQhxEcRVLH6HSRJTM4tYPzvJxOBxgyd9p6HCdsnBE2huS9kckPWWnzQ4pllfxc1LuwB64giS7rnrekNIgb6jWBmzdalPqzyhhn5Q5byS9V+uifUx6a0aKTb/du3UeHZFyP0q3yFUwtSWL6ne6qgehn8DPNn/cttyDMI8Qyq11fzmxEJguePqAnZs5QjmBn62CmQj8clI5M0acBIhNgaBfIFAFeFYg0gwQSmD3dg6RPIOrXrnJZVS59AWx3i9dfLoGoe/A9RixvgdPx+DSWZQddLKD2qmo34QwhwBWan7J//AFVmpmgPRw/K8AAAAASUVORK5CYII=" InformativeScreenshot="ded47af097df7ed0222fa354e64e48ec.jpg" Selector="&lt;html app='chrome.exe' title='보도자료 : 경기도뉴스포털' /&gt;" Url="https://gnews.gg.go.kr/briefing/brief_gongbo.do" Version="V2" />
+          </uix:NApplicationCard.TargetApp>
+        </uix:NApplicationCard>
+      </Sequence>
+      <Sequence sap2010:Annotation.AnnotationText="전체 건수만큼 번호를 만들어 DataTable에 순차적으로 입력해두고, 이후 각 트랜잭션의 결과를 업데이트할 수 있도록 기반을 구성" DisplayName="TransactionData 초기 생성 | Sequence" sap:VirtualizedContainerService.HintSize="450.2857142857143,94.28571428571429" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign sap2010:Annotation.AnnotationText="전체 건수 기준으로 1부터 시작하는 번호 목록 생성" DisplayName="Assign - arrRowNumbers" sap:VirtualizedContainerService.HintSize="434.2857142857143,148" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign.To>
+            <OutArgument x:TypeArguments="s:Int32[]">[arrRowNumbers]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="s:Int32[]">[Enumerable.Range(1, CInt(io_Config("TotalCount").ToString)).Reverse.ToArray]</InArgument>
+          </Assign.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Assign>
+        <ui:BuildDataTable sap2010:Annotation.AnnotationText="TransactionData 구조 초기화&#xA;&#xA;번호(Int32) 수행결과(String)" DataTable="[out_dt_TransactionData]" DisplayName="Build Data Table - dt_TransactionData" sap:VirtualizedContainerService.HintSize="434.2857142857143,155.42857142857142" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;번호&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;수행결과&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName /&gt;&#xA;&lt;/NewDataSet&gt;">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:BuildDataTable>
+        <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="생성된 번호 리스트를 순회하며 TransactionData에 한 행씩 추가" DisplayName="For Each currentNumber" sap:VirtualizedContainerService.HintSize="434.2857142857143,430.2857142857143" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrRowNumbers]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="x:Int32">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Int32" Name="currentNumber" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,276" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() { currentNumber, &quot;&quot; }]" DataTable="[out_dt_TransactionData]" DisplayName="Add Data Row - dt_TransactionData" sap:VirtualizedContainerService.HintSize="381.7142857142857,216" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:ForEach>
+      </Sequence>
+    </Sequence>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484.57142857142856,168.57142857142858" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;***Generate Transaction DataTable End***&quot;]" />
+  </Sequence>
+</Activity>

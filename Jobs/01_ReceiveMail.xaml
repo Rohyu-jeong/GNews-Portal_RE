@@ -99,14 +99,14 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_01_ReceiveMail" sap:VirtualizedContainerService.HintSize="988.2857142857142,3809.1428571428573" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_01_ReceiveMail" sap:VirtualizedContainerService.HintSize="882,3832" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="614.8571428571429,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;***Receive Mail Start***&quot;]" />
-    <Sequence sap2010:Annotation.AnnotationText="IMAP 메일 수신 후 본문을 분석하여 시작날짜와 종료날짜를 추출" DisplayName="메일 수신 및 항목 추출 | Sequence" sap:VirtualizedContainerService.HintSize="614.8571428571429,3440" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap2010:Annotation.AnnotationText="IMAP 메일 수신 후 본문을 분석하여 시작날짜와 종료날짜를 추출" DisplayName="메일 수신 및 항목 추출 | Sequence" sap:VirtualizedContainerService.HintSize="614.8571428571429,3462.8571428571427" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="lstMailMsg" />
       </Sequence.Variables>
@@ -189,26 +189,26 @@
         </TryCatch.Finally>
       </TryCatch>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="580.5714285714286,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;메일 수신 성공&quot;]" />
-      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mailMessage" sap:VirtualizedContainerService.HintSize="580.5714285714286,2169.714285714286" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lstMailMsg]">
+      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mailMessage" sap:VirtualizedContainerService.HintSize="580.5714285714286,2192.5714285714284" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lstMailMsg]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="snm:MailMessage">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mailMessage" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="578.2857142857143,2046.2857142857142" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="578.2857142857143,2069.1428571428573" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If sap2010:Annotation.AnnotationText="&quot;[경기도 뉴스포털]&quot; 포함된 메일만 본문 처리" Condition="[mailMessage.Subject.Contains(&quot;[경기도 뉴스포털]&quot;)]" DisplayName="If - mailMessage" sap:VirtualizedContainerService.HintSize="544,1986.2857142857142" sap2010:WorkflowViewState.IdRef="If_1">
+              <If sap2010:Annotation.AnnotationText="&quot;[경기도 뉴스포털]&quot; 포함된 메일만 본문 처리" Condition="[mailMessage.Subject.Contains(&quot;[경기도 뉴스포털]&quot;)]" DisplayName="If - mailMessage" sap:VirtualizedContainerService.HintSize="544,2009.142857142857" sap2010:WorkflowViewState.IdRef="If_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="541.7142857142857,1735.4285714285713" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="541.7142857142857,1756" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="scg:List(x:String)" Name="lstBody" />
                     </Sequence.Variables>
@@ -217,7 +217,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap2010:Annotation.AnnotationText="본문은 줄바꿈 및 공백 제거 후 줄 단위로 나누어 리스트에 저장&#xA;NewLine + TrimEntries → 줄바꿈 OS 대응 + 공백 제거&#xA;mailMessage.Body.Split(Environment.NewLine.ToCharArray, StringSplitOptions.RemoveEmptyEntries Or StringSplitOptions.TrimEntries).ToList" DisplayName="Assign - lstBody" sap:VirtualizedContainerService.HintSize="507.42857142857144,208" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign sap2010:Annotation.AnnotationText="본문은 줄바꿈 및 공백 제거 후 줄 단위로 나누어 리스트에 저장&#xA;NewLine + TrimEntries → 줄바꿈 OS 대응 + 공백 제거&#xA;mailMessage.Body.Split(Environment.NewLine.ToCharArray, StringSplitOptions.RemoveEmptyEntries Or StringSplitOptions.TrimEntries).ToList" DisplayName="Assign - lstBody" sap:VirtualizedContainerService.HintSize="507.42857142857144,214.85714285714286" sap2010:WorkflowViewState.IdRef="Assign_1">
                       <Assign.To>
                         <OutArgument x:TypeArguments="scg:List(x:String)">[lstBody]</OutArgument>
                       </Assign.To>
@@ -230,19 +230,19 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </Assign>
-                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each line - lstBody" sap:VirtualizedContainerService.HintSize="507.42857142857144,1388.5714285714287" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[lstBody]">
+                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each line - lstBody" sap:VirtualizedContainerService.HintSize="507.42857142857144,1402.2857142857142" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[lstBody]">
                       <ui:ForEach.Body>
                         <ActivityAction x:TypeArguments="x:String">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="x:String" Name="line" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="for eachBody" sap:VirtualizedContainerService.HintSize="505.14285714285717,1257.142857142857" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <Sequence DisplayName="for eachBody" sap:VirtualizedContainerService.HintSize="505.14285714285717,1269.7142857142858" sap2010:WorkflowViewState.IdRef="Sequence_6">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap2010:Annotation.AnnotationText="line 양쪽에 있는 '*' 문자를 제거하여 텍스트를 정제" DisplayName="Assign -  line" sap:VirtualizedContainerService.HintSize="470.85714285714283,146.85714285714286" sap2010:WorkflowViewState.IdRef="Assign_2">
+                            <Assign sap2010:Annotation.AnnotationText="line 양쪽에 있는 '*' 문자를 제거하여 텍스트를 정제" DisplayName="Assign -  line" sap:VirtualizedContainerService.HintSize="470.85714285714283,148" sap2010:WorkflowViewState.IdRef="Assign_2">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[line]</OutArgument>
                               </Assign.To>
@@ -255,20 +255,20 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </Assign>
-                            <If sap2010:Annotation.AnnotationText="시작날짜가 포함된 줄을 찾아 날짜만 추출" Condition="[line.Contains(&quot;시작날짜&quot;) AndAlso line.Contains(&quot;: &quot;)]" DisplayName="시작날짜 | If" sap:VirtualizedContainerService.HintSize="470.85714285714283,529.7142857142857" sap2010:WorkflowViewState.IdRef="If_2">
+                            <If sap2010:Annotation.AnnotationText="'시작'과 '날짜'가 포함된 줄을 찾아 날짜만 추출" Condition="[line.Contains(&quot;시작&quot;) AndAlso line.Contains(&quot;날짜&quot;) AndAlso line.Contains(&quot;: &quot;)]" DisplayName="시작날짜 | If" sap:VirtualizedContainerService.HintSize="470.85714285714283,535.4285714285714" sap2010:WorkflowViewState.IdRef="If_2">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
-                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468.57142857142856,334.2857142857143" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468.57142857142856,338.85714285714283" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Assign sap2010:Annotation.AnnotationText="콜론(:) 기준으로 나눈 후 저장&#xA;line.Split({&quot;: &quot;}, StringSplitOptions.None)(1).Trim" DisplayName="Assign - io_Config(&quot;StartDate&quot;)" sap:VirtualizedContainerService.HintSize="434.2857142857143,160" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                  <Assign sap2010:Annotation.AnnotationText="콜론(:) 기준으로 나눈 후 저장&#xA;line.Split({&quot;: &quot;}, StringSplitOptions.None)(1).Trim" DisplayName="Assign - io_Config(&quot;StartDate&quot;)" sap:VirtualizedContainerService.HintSize="434.2857142857143,163.42857142857142" sap2010:WorkflowViewState.IdRef="Assign_3">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:Object">[io_Config("StartDate")]</OutArgument>
                                     </Assign.To>
@@ -281,7 +281,7 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </Assign>
-                                  <WriteLine DisplayName="시작날짜 | Write Line" sap:VirtualizedContainerService.HintSize="434.2857142857143,114.28571428571429" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;시작날짜 : &quot; + io_Config(&quot;StartDate&quot;).ToString]" />
+                                  <WriteLine DisplayName="시작날짜 | Write Line" sap:VirtualizedContainerService.HintSize="434.2857142857143,115.42857142857143" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;시작날짜 : &quot; + io_Config(&quot;StartDate&quot;).ToString]" />
                                 </Sequence>
                               </If.Then>
                               <If.Else>
@@ -295,20 +295,20 @@
                                 </Sequence>
                               </If.Else>
                             </If>
-                            <If sap2010:Annotation.AnnotationText="종료날짜가 포함된 줄을 찾아 날짜만 추출" Condition="[line.Contains(&quot;종료날짜&quot;) AndAlso line.Contains(&quot;: &quot;)]" DisplayName="종료 날짜 | If" sap:VirtualizedContainerService.HintSize="470.85714285714283,520.5714285714286" sap2010:WorkflowViewState.IdRef="If_3">
+                            <If sap2010:Annotation.AnnotationText="'종료'와 '날짜'가 포함된 줄을 찾아 날짜만 추출" Condition="[line.Contains(&quot;종료&quot;) AndAlso line.Contains(&quot;날짜&quot;) AndAlso line.Contains(&quot;: &quot;)]" DisplayName="종료 날짜 | If" sap:VirtualizedContainerService.HintSize="470.85714285714283,526.2857142857143" sap2010:WorkflowViewState.IdRef="If_3">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
-                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468.57142857142856,334.2857142857143" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468.57142857142856,338.85714285714283" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Assign sap2010:Annotation.AnnotationText="콜론(: ) 기준으로 나눈 후 저장&#xA;line.Split({&quot;: &quot;}, StringSplitOptions.None)(1).Trim" DisplayName="Assign - io_Config(&quot;EndDate&quot;)" sap:VirtualizedContainerService.HintSize="434.2857142857143,160" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                  <Assign sap2010:Annotation.AnnotationText="콜론(: ) 기준으로 나눈 후 저장&#xA;line.Split({&quot;: &quot;}, StringSplitOptions.None)(1).Trim" DisplayName="Assign - io_Config(&quot;EndDate&quot;)" sap:VirtualizedContainerService.HintSize="434.2857142857143,163.42857142857142" sap2010:WorkflowViewState.IdRef="Assign_4">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:Object">[io_Config("EndDate")]</OutArgument>
                                     </Assign.To>
@@ -321,7 +321,7 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </Assign>
-                                  <WriteLine DisplayName="종료날짜 | Write Line" sap:VirtualizedContainerService.HintSize="434.2857142857143,114.28571428571429" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;종료날짜 : &quot; + io_Config(&quot;EndDate&quot;).ToString]" />
+                                  <WriteLine DisplayName="종료날짜 | Write Line" sap:VirtualizedContainerService.HintSize="434.2857142857143,115.42857142857143" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;종료날짜 : &quot; + io_Config(&quot;EndDate&quot;).ToString]" />
                                 </Sequence>
                               </If.Then>
                               <If.Else>
@@ -355,7 +355,7 @@
                   </Sequence>
                 </If.Then>
                 <If.Else>
-                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="541.7142857142857,89.71428571428571" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="541.7142857142857,90.85714285714286" sap2010:WorkflowViewState.IdRef="Sequence_5">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

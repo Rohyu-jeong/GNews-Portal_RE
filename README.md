@@ -29,16 +29,16 @@
 ## Workflow 구성
 
 - **Initialization** <br>
-  00_Init Output Folder.xaml
-  01_ReceiveMail.xaml
-  02_CreateResultFolder.xaml
-  03_GenerateTransactionDT.xaml
-  04_InitNoAttachmentItemDT.xaml
+  00_Init Output Folder.xaml <br>
+  01_ReceiveMail.xaml <br>
+  02_CreateResultFolder.xaml <br>
+  03_GenerateTransactionDT.xaml <br>
+  04_InitNoAttachmentItemDT.xaml <br>
 
 - **Process Transaction** <br>
-  05_SaveHwpxFileFromWeb.xaml
-  05_1_HwpxFileDownload.xaml
+  05_SaveHwpxFileFromWeb.xaml <br>
+  05_1_HwpxFileDownload.xaml <br>
 
 - **End Process** <br>
-  06_CreateZipArchive.xaml
-  07_SendMail.xaml
+  06_CreateZipArchive.xaml <br>
+  07_SendMail.xaml <br>

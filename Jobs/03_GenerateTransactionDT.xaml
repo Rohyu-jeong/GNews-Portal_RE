@@ -117,14 +117,14 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_03_GenerateTransactionDT" sap:VirtualizedContainerService.HintSize="994.2857142857142,787.7542857142856" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_03_GenerateTransactionDT" sap:VirtualizedContainerService.HintSize="882,1458.2857142857142" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484.57142857142856,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;***Generate Transaction DataTable Start***&quot;]" />
-    <Sequence sap2010:Annotation.AnnotationText="전체 게시물 수를 조회하고, 순번 기반의 Transaction DataTable을 생성" DisplayName="Transaction DataTable 생성 | Sequence" sap:VirtualizedContainerService.HintSize="484.57142857142856,320.57142857142856" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="502.85714285714283,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;***Generate Transaction DataTable Start***&quot;]" />
+    <Sequence sap2010:Annotation.AnnotationText="전체 게시물 수를 조회하고, 순번 기반의 Transaction DataTable을 생성" DisplayName="Transaction DataTable 생성 | Sequence" sap:VirtualizedContainerService.HintSize="502.85714285714283,1089.142857142857" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="s:Int32[]" Name="arrRowNumbers" />
       </Sequence.Variables>
@@ -134,7 +134,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap2010:Annotation.AnnotationText="Config에서 설정된 시작날짜와 종료날짜를 입력해 조회 후 전체 게시물 수를 추출" DisplayName="전체 건수 추출 | Sequence" sap:VirtualizedContainerService.HintSize="450.2857142857143,103.42857142857143" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence sap2010:Annotation.AnnotationText="Config에서 설정된 시작날짜와 종료날짜를 입력해 조회 후 전체 게시물 수를 추출" DisplayName="보도자료 전체 건수 추출 | Sequence" sap:VirtualizedContainerService.HintSize="468.57142857142856,103.42857142857143" sap2010:WorkflowViewState.IdRef="Sequence_4">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -182,7 +182,7 @@
                     <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo.do" DesignTimeRectangle="1453, 504, 93, 46" ElementType="Button" FullSelectorArgument="&lt;webctrl class='btn_search' tag='BUTTON' type='button' aaname='검색' /&gt;" Guid="2e8e99cd-9d4b-4a0e-9737-0c401ed0f701" InformativeScreenshot="8f145bd87dd8d4ff3055d16402b595fc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
                   </uix:NClick.Target>
                 </uix:NClick>
-                <uix:NGetText DisplayName="검색 결과 전체 건수 | Get Text" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,191.42857142857142" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="39803af5-415e-4929-92be-41c87d7ac543" TextString="[io_Config(&quot;TotalCount&quot;)]" Version="V4">
+                <uix:NGetText DisplayName="검색 결과 전체 건수 | Get Text - io_Config(&quot;TotalCount&quot;)" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,191.42857142857142" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="39803af5-415e-4929-92be-41c87d7ac543" TextString="[io_Config(&quot;TotalCount&quot;)]" Version="V4">
                   <uix:NGetText.Target>
                     <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo.do" DesignTimeRectangle="288, 629, 21, 21" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='contents' tag='SPAN' parentclass='total_num' /&gt;" Guid="7472dec6-6278-41bd-b129-58b6c05ec416" ImageBase64="" InformativeScreenshot="d31a8189767860bd8e77ccae4f1222e6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
                   </uix:NGetText.Target>
@@ -196,15 +196,15 @@
           </uix:NApplicationCard.TargetApp>
         </uix:NApplicationCard>
       </Sequence>
-      <Sequence sap2010:Annotation.AnnotationText="전체 건수만큼 번호를 만들어 DataTable에 순차적으로 입력해두고, 이후 각 트랜잭션의 결과를 업데이트할 수 있도록 기반을 구성" DisplayName="TransactionData 초기 생성 | Sequence" sap:VirtualizedContainerService.HintSize="450.2857142857143,94.28571428571429" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <Sequence sap2010:Annotation.AnnotationText="전체 건수만큼 번호를 만들어 DataTable에 순차적으로 입력해두고, 이후 각 트랜잭션의 결과를 업데이트할 수 있도록 기반을 구성" DisplayName="TransactionData 초기 생성 | Sequence" sap:VirtualizedContainerService.HintSize="468.57142857142856,862.8571428571429" sap2010:WorkflowViewState.IdRef="Sequence_5">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Assign sap2010:Annotation.AnnotationText="전체 건수 기준으로 1부터 시작하는 번호 목록 생성" DisplayName="Assign - arrRowNumbers" sap:VirtualizedContainerService.HintSize="434.2857142857143,148" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign sap2010:Annotation.AnnotationText="전체 건수 기준으로 1부터 시작하는 번호 목록 생성" DisplayName="번호 목록 생성 | Assign - arrRowNumbers" sap:VirtualizedContainerService.HintSize="434.2857142857143,148" sap2010:WorkflowViewState.IdRef="Assign_1">
           <Assign.To>
             <OutArgument x:TypeArguments="s:Int32[]">[arrRowNumbers]</OutArgument>
           </Assign.To>
@@ -224,7 +224,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:BuildDataTable>
-        <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="생성된 번호 리스트를 순회하며 TransactionData에 한 행씩 추가" DisplayName="For Each currentNumber" sap:VirtualizedContainerService.HintSize="434.2857142857143,430.2857142857143" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrRowNumbers]">
+        <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="생성된 번호 리스트를 순회하며 TransactionData에 한 행씩 추가" DisplayName="TransactionData 행 추가 반복 | For Each currentNumber" sap:VirtualizedContainerService.HintSize="434.2857142857143,430.2857142857143" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrRowNumbers]">
           <ui:ForEach.Body>
             <ActivityAction x:TypeArguments="x:Int32">
               <ActivityAction.Argument>
@@ -248,6 +248,6 @@
         </ui:ForEach>
       </Sequence>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484.57142857142856,168.57142857142858" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;***Generate Transaction DataTable End***&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="502.85714285714283,168.57142857142858" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;***Generate Transaction DataTable End***&quot;]" />
   </Sequence>
 </Activity>

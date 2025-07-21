@@ -144,7 +144,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Throw Exception="[New BusinessRuleException(&quot;조건에 맞는 메일이 존재하지 않습니다.&quot;)]" sap:VirtualizedContainerService.HintSize="381.7142857142857,115.42857142857143" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  <Throw DisplayName="메일 여부 BRE | Throw" Exception="[New BusinessRuleException(&quot;조건에 맞는 메일이 존재하지 않습니다.&quot;)]" sap:VirtualizedContainerService.HintSize="381.7142857142857,115.42857142857143" sap2010:WorkflowViewState.IdRef="Throw_1" />
                 </Sequence>
               </If.Then>
               <If.Else>

@@ -94,20 +94,20 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_00_InitOutputFolder" sap:VirtualizedContainerService.HintSize="988.2857142857142,1368.5714285714287" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_00_InitOutputFolder" sap:VirtualizedContainerService.HintSize="1087,1367.0000000000002" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518.8571428571429,175.42857142857142" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;***Output Folder Initialization Start***&quot;]" />
-    <Sequence DisplayName="Output Folder 초기화 | Sequence" sap:VirtualizedContainerService.HintSize="518.8571428571429,1004" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;***Output Folder Initialization Start***&quot;]" />
+    <Sequence DisplayName="Output Folder 초기화 | Sequence" sap:VirtualizedContainerService.HintSize="518,1003" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEachFolderX DisplayName="Output Folder 오늘 날짜 하위 폴더 정리 | For Each Folder in Folder" FilterByName="[in_Config(&quot;Today&quot;).ToString + &quot;*&quot;]" Folder="[in_Config(&quot;OutputFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="484.57142857142856,460.57142857142856" sap2010:WorkflowViewState.IdRef="ForEachFolderX_1" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
+      <ui:ForEachFolderX DisplayName="Output Folder 오늘 날짜 하위 정리 | For Each Folder in Folder" FilterByName="[in_Config(&quot;Today&quot;).ToString + &quot;*&quot;]" Folder="[in_Config(&quot;OutputFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="484,460" sap2010:WorkflowViewState.IdRef="ForEachFolderX_1" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
         <ui:ForEachFolderX.Body>
           <ActivityAction x:TypeArguments="si:DirectoryInfo, x:Int32">
             <ActivityAction.Argument1>
@@ -116,7 +116,7 @@
             <ActivityAction.Argument2>
               <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
             </ActivityAction.Argument2>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450.2857142857143,164" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -127,7 +127,7 @@
           </ActivityAction>
         </ui:ForEachFolderX.Body>
       </ui:ForEachFolderX>
-      <ui:ForEachFileX DisplayName="Output Folder ZIp File 정리 | For Each File in Folder" Filter="[in_Config(&quot;Today&quot;).ToString + &quot;*.zip&quot;]" Folder="[in_Config(&quot;OutputFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="484.57142857142856,451.42857142857144" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+      <ui:ForEachFileX DisplayName="Output Folder ZIp File 정리 | For Each File in Folder" Filter="[in_Config(&quot;Today&quot;).ToString + &quot;*.zip&quot;]" Folder="[in_Config(&quot;OutputFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="484,451" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
         <ui:ForEachFileX.Body>
           <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
             <ActivityAction.Argument1>
@@ -148,6 +148,6 @@
         </ui:ForEachFileX.Body>
       </ui:ForEachFileX>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518.8571428571429,166.28571428571428" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;***Output Folder Initialization End***&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;***Output Folder Initialization End***&quot;]" />
   </Sequence>
 </Activity>

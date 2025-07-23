@@ -1,0 +1,446 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_05_SaveHwpxFileFromWeb" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_dtNonHwpxItems" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>_05_SaveHwpxFileFromWeb_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>Microsoft.Office.Interop.Word</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Semantic.Activities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Activities.System.FileOperations</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>Microsoft.Office.Interop.Word</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="_05_SaveHwpxFileFromWeb" sap:VirtualizedContainerService.HintSize="816,861.7142857142857" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484.57142857142856,175.42857142857142" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;***Navigate to page And Download .hwpx file Start - No. &quot; + in_TransactionItem(&quot;번호&quot;).ToString + &quot; ***&quot;]" />
+    <Sequence sap2010:Annotation.AnnotationText="보도자료 번호로 상세페이지 URL을 만들고, 해당 페이지에서 hwpx 파일을 다운로드하거나 없을 경우 예외로 처리하여 제목/보도 날짜를 기록" DisplayName="hwpx 파일 다운로드 | Sequence" sap:VirtualizedContainerService.HintSize="484.57142857142856,497.14285714285717" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Int32" Default="0" Name="intPageNumber" />
+        <Variable x:TypeArguments="x:Int32" Default="0" Name="intRowNumber" />
+        <Variable x:TypeArguments="x:String" Name="strPageURL" />
+        <Variable x:TypeArguments="x:String" Name="strURLHref" />
+        <Variable x:TypeArguments="x:String" Name="strDownloadHref" />
+        <Variable x:TypeArguments="x:String" Name="strDownloadURL" />
+        <Variable x:TypeArguments="x:String" Name="strSubject" />
+        <Variable x:TypeArguments="x:String" Name="strDate" />
+        <Variable x:TypeArguments="x:String" Name="strHwpxText" />
+        <Variable x:TypeArguments="x:String" Name="strHwpxSavePath" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence sap2010:Annotation.AnnotationText="TransactionItem(&quot;번호&quot;)에서 보도자료 번호를 가져와 페이지 번호 계산" DisplayName="보도자료 정보 계산 | Sequence" sap:VirtualizedContainerService.HintSize="450.2857142857143,88" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign sap2010:Annotation.AnnotationText="CInt(in_TransactionItem(&quot;번호&quot;))" DisplayName="보도자료 번호 | Assign - intRowNumber" sap:VirtualizedContainerService.HintSize="434.2857142857143,148" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">[intRowNumber]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">[CInt(in_TransactionItem("번호"))]</InArgument>
+          </Assign.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Assign>
+        <Assign sap2010:Annotation.AnnotationText="페이지 번호 계산 (최신순 기준, 페이지당 10건)&#xA;CInt(((CInt(in_Config(&quot;TotalCount&quot;)) - intRowNumber) \ 10) + 1)" DisplayName="페이지 번호 | Assign - intPageNumber" sap:VirtualizedContainerService.HintSize="434.2857142857143,163.42857142857142" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">[intPageNumber]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">[CInt(((CInt(in_Config("TotalCount")) - intRowNumber) \ 10) + 1)]</InArgument>
+          </Assign.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Assign>
+        <WriteLine DisplayName="보도자료 번호, 페이지 번호 | Write Line" sap:VirtualizedContainerService.HintSize="434.2857142857143,115.42857142857143" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;보도자료 번호 : &quot; + intRowNumber.ToString + &quot; / 페이지 번호 : &quot; + intPageNumber.ToString]" />
+      </Sequence>
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="보도자료 리스트 페이지로 이동하여 보도자료의 href 속성을 추출한 뒤, Config의 기본 URL과 결합해 상세페이지 URL을 생성" AttachMode="ByInstance" DisplayName="Use Browser Chrome: 보도자료 : 경기도뉴스포털" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="450.2857142857143,149.14285714285714" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" IsDisplayNameAuto="True" ScopeGuid="1e353bee-6b95-46dd-8af8-cd20fa20953b" Version="V2" WindowResize="Maximize">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468.57142857142856,875.4285714285714" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NGoToUrl sap2010:Annotation.AnnotationText="보도자료 리스트 페이지로 이동" DisplayName="보도자료 페이지 이동 | Go To URL" sap:VirtualizedContainerService.HintSize="434.2857142857143,147.42857142857142" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[&quot;https://gnews.gg.go.kr/briefing/brief_gongbo.do?page=&quot; + intPageNumber.ToString + &quot;&amp;BS_CODE=s017&amp;period_1=&quot; + in_Config(&quot;StartDate&quot;).ToString + &quot;&amp;period_2=&quot; + in_Config(&quot;EndDate&quot;).ToString]" Version="V4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NGoToUrl>
+              <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="434.2857142857143,125.14285714285714" sap2010:WorkflowViewState.IdRef="Delay_1" />
+              <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="보도자료 상세페이지로 연결되는 링크(href) 추출" Attribute="href" DisplayName="상세페이지 href 추출 | Get Attribute - strHref" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="434.2857142857143,274.85714285714283" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_2" Result="[strURLHref]" ScopeIdentifier="1e353bee-6b95-46dd-8af8-cd20fa20953b" Version="V4">
+                <uix:NGetAttributeGeneric.Target>
+                  <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo.do" DesignTimeRectangle="153, 853, 624, 25" ElementType="Text" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='A' colName='제목' parentid='contents' rowName='{0}' /&gt;&quot;, intRowNumber)]" Guid="cecf986c-0aca-4bf7-a3bc-69e5cee3f60f" InformativeScreenshot="0b216d3d58a0bdd00d94cf5a75a33c0e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                </uix:NGetAttributeGeneric.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NGetAttributeGeneric>
+              <Assign sap2010:Annotation.AnnotationText="보도자료 상세페이지 URL 생성 (Config의 기본 URL + href 조합)" DisplayName="상세페이지 URL | Assign - strURL" sap:VirtualizedContainerService.HintSize="434.2857142857143,148" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strPageURL]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Config("처리시스템Url").ToString + strURLHref]</InArgument>
+                </Assign.Value>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Assign>
+              <WriteLine DisplayName="보도자료 페이지 URL | Write Line" sap:VirtualizedContainerService.HintSize="434.2857142857143,117.71428571428571" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[intRowNumber.ToString + &quot;번째 보도자료 URL : &quot; + strPageURL]" />
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="2872, -8, 1936, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAGdYAABnWARjRyu0AAAEaSURBVDhP7Y6xSsNQGIWP+UM3N59CBIfQmNskTe5tRVxcOvgALqIv4QM4qb335jZRpM0ibu526OIsQhxEcRVLH6HSRJTM4tYPzvJxOBxgyd9p6HCdsnBE2huS9kckPWWnzQ4pllfxc1LuwB64giS7rnrekNIgb6jWBmzdalPqzyhhn5Q5byS9V+uifUx6a0aKTb/du3UeHZFyP0q3yFUwtSWL6ne6qgehn8DPNn/cttyDMI8Qyq11fzmxEJguePqAnZs5QjmBn62CmQj8clI5M0acBIhNgaBfIFAFeFYg0gwQSmD3dg6RPIOrXrnJZVS59AWx3i9dfLoGoe/A9RixvgdPx+DSWZQddLKD2qmo34QwhwBWan7J//AFVmpmgPRw/K8AAAAASUVORK5CYII=" InformativeScreenshot="5271be6ef206e21de23d3b8aa0cfabba.jpg" Selector="&lt;html app='chrome.exe' title='보도자료 : 경기도뉴스포털' /&gt;" Url="https://gnews.gg.go.kr/briefing/brief_gongbo.do" Version="V2" />
+        </uix:NApplicationCard.TargetApp>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </uix:NApplicationCard>
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="보도자료 상세페이지에서 hwpx 파일 존재 여부를 확인하고, 있으면 특수문자 제거된 파일명으로 Output\오늘날짜(yyyyMMdd) 경로에 저장하며, 없으면 제목과 날짜를 dtNoAttachmentItems에 저장" AttachMode="ByInstance" DisplayName="Use Browser Chrome: 보도자료 상세페이지" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="450.2857142857143,124" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="b526429e-1ce1-4df3-86f4-f1fb6f23d751" Version="V2" WindowResize="Maximize">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468.57142857142856,3232" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="strUserAgent" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <TryCatch DisplayName=".hwp 파일 확인 | Try Catch" sap:VirtualizedContainerService.HintSize="434.2857142857143,1732.5714285714287" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                <TryCatch.Try>
+                  <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="416,366.2857142857143" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NMouseScroll KeyModifiers="{x:Null}" sap2010:Annotation.AnnotationText="hwpx 확장자 첨부파일이 존재하는지 확인을 위해 해당 요소까지 아래 방향으로 스크롤" Direction="Down" DisplayName="hwpx 찾기 | Mouse Scroll" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="381.7142857142857,306.2857142857143" sap2010:WorkflowViewState.IdRef="NMouseScroll_1" InteractionMode="HardwareEvents" MovementUnits="10" ScopeIdentifier="b526429e-1ce1-4df3-86f4-f1fb6f23d751" Version="V4">
+                      <uix:NMouseScroll.SearchedElement>
+                        <uix:SearchedElement>
+                          <uix:SearchedElement.Target>
+                            <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo_view.do" DesignTimeRectangle="536, 723, 885, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='*.hwpx' parentid='contents' tag='A' parentclass='fileset' /&gt;" Guid="f61f782b-ff1b-4571-bcb0-d0c314820367" InformativeScreenshot="49d5a7edb7e3281f9d49601abcba86a6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='경기도북부자치경찰위원회, 360도 스마트 영상센터 방문 : 보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                          </uix:SearchedElement.Target>
+                          <uix:SearchedElement.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:SearchedElement.Timeout>
+                        </uix:SearchedElement>
+                      </uix:NMouseScroll.SearchedElement>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NMouseScroll>
+                  </Sequence>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <Sequence sap2010:Annotation.AnnotationText="hwpx가 없을 경우 제목과 날짜를 추출하여 dtNonHwpxItem에 저장" DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,1166.857142857143" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Up" DisplayName="logo 위치 이동 | Mouse Scroll" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="381.7142857142857,271.42857142857144" sap2010:WorkflowViewState.IdRef="NMouseScroll_2" InteractionMode="HardwareEvents" MovementUnits="10" Version="V4">
+                          <uix:NMouseScroll.SearchedElement>
+                            <uix:SearchedElement>
+                              <uix:SearchedElement.Target>
+                                <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo_view.do" DesignTimeRectangle="256, 214, 248, 42" ElementType="Icon" FullSelectorArgument="&lt;webctrl tag='IMG' parentclass='logo' /&gt;" Guid="6625b787-89ee-4acc-8508-17720d172cf1" InformativeScreenshot="75dbc31207c7a22e9c64cb01855dc1da.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='경기도북부자치경찰위원회, 360도 스마트 영상센터 방문 : 보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                              </uix:SearchedElement.Target>
+                              <uix:SearchedElement.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:SearchedElement.Timeout>
+                            </uix:SearchedElement>
+                          </uix:NMouseScroll.SearchedElement>
+                        </uix:NMouseScroll>
+                        <uix:NGetText DisplayName="보도자료 제목 | Get Text" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="381.7142857142857,190.28571428571428" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="b526429e-1ce1-4df3-86f4-f1fb6f23d751" TextString="[strSubject]" Version="V4">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo_view.do" DesignTimeRectangle="481, 324, 960, 130" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H3' parentid='contents' idx='1' /&gt;" Guid="d7f22e1e-5563-4af9-8f3e-3a76f648a0bb" InformativeScreenshot="40b315794f4f33b27b6d045d1966d70b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='경기도북부자치경찰위원회, 360도 스마트 영상센터 방문 : 보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                          </uix:NGetText.Target>
+                        </uix:NGetText>
+                        <uix:NGetText DisplayName="보도자료 날짜시간 | Get Text" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="381.7142857142857,190.28571428571428" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="b526429e-1ce1-4df3-86f4-f1fb6f23d751" TextString="[strDate]" Version="V4">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo_view.do" DesignTimeRectangle="525, 583, 174, 26" ElementType="Text" FullSelectorArgument="&lt;webctrl isleaf='1' parentid='contents' tag='DIV' parentclass='postinfo' /&gt;" Guid="9f88b3f3-a9b8-4bfb-94b6-cfef8d08df96" InformativeScreenshot="3e87e00f635f0868b77d8d9747f2a27a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='경기도북부자치경찰위원회, 360도 스마트 영상센터 방문 : 보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                          </uix:NGetText.Target>
+                        </uix:NGetText>
+                        <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="제목과 날짜(시간 제외)를 첨부파일 없는 항목 테이블에 저장" ArrayRow="[{strSubject, strDate.Split(&quot; &quot;c)(0)}]" DataTable="[io_dtNonHwpxItems]" DisplayName="Add Data Row - dtNoAttachmentItems" sap:VirtualizedContainerService.HintSize="381.7142857142857,265.7142857142857" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:AddDataRow>
+                        <Throw sap2010:Annotation.AnnotationText="첨부파일(.hwpx)이 없을 경우 BusinessRuleException 발생" DisplayName="No Attachment BRE | Throw" Exception="[New BusinessRuleException(&quot;hwpx 파일이 존재하지 않습니다.&quot;)]" sap:VirtualizedContainerService.HintSize="381.7142857142857,158.28571428571428" sap2010:WorkflowViewState.IdRef="Throw_1">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Throw>
+                      </Sequence>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+                <TryCatch.Finally>
+                  <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="416,25.142857142857142" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </TryCatch.Finally>
+              </TryCatch>
+              <uix:NGetText sap2010:Annotation.AnnotationText="다운로드 대상 .hwpx 파일명 원본 텍스트 추출" DisplayName="hwpx 파일명 추출 | Get Text - strHwpxText" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="434.2857142857143,221.14285714285714" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="b526429e-1ce1-4df3-86f4-f1fb6f23d751" TextString="[strHwpxText]" Version="V4">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo_view.do" DesignTimeRectangle="536, 623, 885, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='*.hwpx' parentid='contents' tag='A' parentclass='fileset' /&gt;" Guid="127e514b-8148-4d2e-911c-431309b2e22d" ImageBase64="" InformativeScreenshot="49d5a7edb7e3281f9d49601abcba86a6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='경기도북부자치경찰위원회, 360도 스마트 영상센터 방문 : 보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                </uix:NGetText.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NGetText>
+              <Assign sap2010:Annotation.AnnotationText="파일명에 포함된 공백, 특수문자 등 제거하여 저장 가능한 이름으로 정제&#xA;&quot;/&quot; + System.Text.RegularExpressions.Regex.Replace(&#xA;    System.IO.Path.GetFileNameWithoutExtension(strHwpText),&#xA;    &quot;[^가-힣a-zA-Z0-9]&quot;,&#xA;    &quot;&quot;&#xA;) + &quot;.hwpx&quot;" DisplayName="hwpx 파일명 정제 | Assign - strHwpxText" sap:VirtualizedContainerService.HintSize="434.2857142857143,240.57142857142858" sap2010:WorkflowViewState.IdRef="Assign_5">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strHwpxText]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String" xml:space="preserve">["/" + System.Text.RegularExpressions.Regex.Replace(
+    System.IO.Path.GetFileNameWithoutExtension(strHwpxText),
+    "[^가-힣a-zA-Z0-9]",
+    ""
+) + ".hwpx"]</InArgument>
+                </Assign.Value>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Assign>
+              <WriteLine DisplayName="hwpx 파일명 | Write Line" sap:VirtualizedContainerService.HintSize="434.2857142857143,123.42857142857143" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[&quot;파일명 : &quot; + strHwpxText]" />
+              <Assign sap2010:Annotation.AnnotationText="in_Config(&quot;OutputPath&quot;).ToString + strHwpxText" DisplayName="hwpx 파일 저장 경로 | Assign" sap:VirtualizedContainerService.HintSize="434.2857142857143,146.85714285714286" sap2010:WorkflowViewState.IdRef="Assign_6">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strHwpxSavePath]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Config("OutputPath").ToString + strHwpxText]</InArgument>
+                </Assign.Value>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Assign>
+              <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="href" DisplayName="hwpx Download href 추출 | Get Attribute" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="434.2857142857143,241.71428571428572" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_3" Result="[strDownloadHref]" ScopeIdentifier="b526429e-1ce1-4df3-86f4-f1fb6f23d751" Version="V4">
+                <uix:NGetAttributeGeneric.Target>
+                  <uix:TargetAnchorable BrowserURL="gnews.gg.go.kr/briefing/brief_gongbo_view.do" DesignTimeRectangle="536, 623, 885, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='*.hwpx' parentid='contents' tag='A' parentclass='fileset' /&gt;" Guid="24a0d7fc-69ae-43e7-9d21-9635bc48d29d" InformativeScreenshot="49d5a7edb7e3281f9d49601abcba86a6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='경기도북부자치경찰위원회, 360도 스마트 영상센터 방문 : 보도자료 : 경기도뉴스포털' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                </uix:NGetAttributeGeneric.Target>
+              </uix:NGetAttributeGeneric>
+              <Assign DisplayName="hwpx Download URL | Assign - strDownloadURL" sap:VirtualizedContainerService.HintSize="434.2857142857143,116" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strDownloadURL]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Config("처리시스템Url").ToString + strDownloadHref]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="User Agent | Assign - strUserAgent" sap:VirtualizedContainerService.HintSize="434.2857142857143,116" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strUserAgent]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Config("UserAgent").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="DownloadFileFromUrl 액티비티의 HttpClient Dispose 오류 방지를 위해 Isolated 워크플로우로 분리" DisplayName="05_1_HwpxFileDownload - Invoke Workflow File (Jobs\05_1_HwpxFileDownload.xaml)" sap:VirtualizedContainerService.HintSize="434.2857142857143,231.42857142857142" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="True" WorkflowFileName="Jobs\05_1_HwpxFileDownload.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_strDownloadURL">[strDownloadURL]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_strHwpxSavePath">[strHwpxSavePath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_strUserAgent">[strUserAgent]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:InvokeWorkflowFile>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="2872, -8, 1936, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAGdYAABnWARjRyu0AAAEaSURBVDhP7Y6xSsNQGIWP+UM3N59CBIfQmNskTe5tRVxcOvgALqIv4QM4qb335jZRpM0ibu526OIsQhxEcRVLH6HSRJTM4tYPzvJxOBxgyd9p6HCdsnBE2huS9kckPWWnzQ4pllfxc1LuwB64giS7rnrekNIgb6jWBmzdalPqzyhhn5Q5byS9V+uifUx6a0aKTb/du3UeHZFyP0q3yFUwtSWL6ne6qgehn8DPNn/cttyDMI8Qyq11fzmxEJguePqAnZs5QjmBn62CmQj8clI5M0acBIhNgaBfIFAFeFYg0gwQSmD3dg6RPIOrXrnJZVS59AWx3i9dfLoGoe/A9RixvgdPx+DSWZQddLKD2qmo34QwhwBWan7J//AFVmpmgPRw/K8AAAAASUVORK5CYII=" sap2010:WorkflowViewState.IdRef="TargetApp_1" Selector="&lt;html app='chrome.exe' title='경기도북부자치경찰위원회, 360도 스마트 영상센터 방문 : 보도자료 : 경기도뉴스포털' /&gt;" Url="[strPageURL]" Version="V2" />
+        </uix:NApplicationCard.TargetApp>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </uix:NApplicationCard>
+    </Sequence>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484.57142857142856,166.28571428571428" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;***Navigate to page And Download .hwpx file End***&quot;]" />
+  </Sequence>
+</Activity>
